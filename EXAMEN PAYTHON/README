@@ -1,0 +1,35 @@
+SISTEMA DE ADMINISTRACIÓN DEL ZOOLÓGICO DE MORELIA
+
+Miembros:
+- Diana Laura Campos Rosas
+- Abril Michelle Chávez Mandujano
+- Luis Antonio Arguello Escutia
+- Mariana Sofía Meneses Díaz
+
+Este sistema de administración fue desarrollado para el Zoológico de Morelia con el propósito de gestionar 
+eficientemente todas las operaciones relacionadas con el personal, los visitantes y los animales del zoológico. 
+
+FUNCIONES PRINCIPALES
+
+- Registro y Gestión de Empleados
+El sistema permite registrar y administrar información detallada de los empleados del zoológico, incluyendo su 
+nombre, apellidos, fecha de nacimiento, fecha de ingreso, RFC, CURP, salario, horario y rol dentro del 
+zoológico (Veterinario, Guía, Mantenimiento, Administración).
+
+- Registro y Seguimiento de Visitantes
+Se puede almacenar información completa de los visitantes, como nombre, apellidos, fecha de nacimiento, CURP, número
+de visitas, y fecha de registro. Además, se lleva un seguimiento del número de visitas de cada visitante para ofrecer 
+un 20\% de descuento cuando se cumplan 5 visitas.
+
+- Registro de Visitas
+Cada vez que un visitante llega al zoológico, se registra una visita en el sistema, incluyendo el guía a cargo, los 
+visitantes presentes, el costo total de la visita, la fecha de la visita, la cantidad de niños y adultos, y automáticamente
+se actualiza el número de visitas del cliente.
+
+- Registro y Seguimiento de Animales
+El sistema permite registrar nuevos animales, especificando su tipo, fecha de nacimiento, fecha de llegada al zoológico, peso,
+enfermedades (en el caso de que tenga), frecuencia y tipo de alimentación, y si cuenta con vacunas.
+
+- Registro y Control de Mantenimientos
+Se registra la información relacionada con los mantenimientos realizados en el zoológico, incluyendo el empleado encargado, el 
+ID del animal involucrado, el proceso realizado, la fecha del proceso y observaciones opcionales.
