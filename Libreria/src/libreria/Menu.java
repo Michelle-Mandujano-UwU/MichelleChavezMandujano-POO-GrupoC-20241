@@ -6,7 +6,7 @@ import usuarios.Usuario;
 public class Menu {
     static Scanner scanner= new Scanner (System.in);
     private Libreria libreria = new Libreria();
-    
+    Usuario usuarioActual;
     public void iniciarSesión() {
         boolean datosCorrectos = false;
         do {
@@ -50,7 +50,7 @@ public class Menu {
                     break;
             case 2: rentarLibro();
                     break;
-            case 3: cerrarSesión();
+            case 3: cerrarSesión(usuarioActual);
                     break;
         }
        
@@ -72,7 +72,7 @@ public class Menu {
                     break;
             case 3: opinionesClientes();
                     break;
-            case 4: cerrarSesión();
+            case 4: cerrarSesión(usuarioActual);
                     break;
         }
     }
@@ -97,13 +97,16 @@ public class Menu {
                     break;
             case 5: eliminarLibro();
                     break;
-            case 6: cerrarSesión();
+            case 6: cerrarSesión(usuarioActual);
                     break;   
         }
     }
     
-    private void cerrarSesión(){
-        
+    private void cerrarSesión(Usuario usuarioActual){
+        System.out.println("\nSesión cerrada para: " + usuarioActual.getNombre());
+        usuarioActual = null; // Limpiar datos del usuario actual
+        System.out.println("Sesión cerrada, vuelva a iniciar sesión");
+        iniciarSesión();
     }
     ////////////////////Cliente/////////////////////////////
     private void consultarLibros(){
