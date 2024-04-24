@@ -1,11 +1,15 @@
 package libreria;
 import java.util.Scanner;
+import usuarios.Asistente;
+import usuarios.Cliente;
+import usuarios.Gerente;
 import usuarios.Usuario;
 import usuarios.UsuarioEnSesion;
+import utils.Rol;
 
 
 public class Menu {
-     private Libreria libreria = new Libreria();
+    private Libreria libreria = new Libreria();
     private Scanner leer = new Scanner(System.in);
 
     public void iniciarSesion() { //al hacerlo estático podemos llamar este metodo sin necesidad de crear un objeto
@@ -21,7 +25,7 @@ public class Menu {
             String contrasena = scanner.nextLine();
             Usuario usuarioActual = libreria.verificarInicioSesion(usuario, contrasena);
             if(usuarioActual != null) {
-                
+               
                 datosCorrectos = true;
                 UsuarioEnSesion.obtenerInstancia().setUsuarioActual(usuarioActual);
                 seleccionarMenu();
@@ -61,7 +65,7 @@ public class Menu {
 
             switch(decision) {
                 case 1:
-                  
+                    Libro.mostrarLibros();
                     break;
 
                 case 2:
@@ -90,10 +94,10 @@ public class Menu {
             System.out.println(nombreUsuario);
             System.out.println("\n1. Consultar libros");
             System.out.println("2. Consultar rentas");
-            System.out.println("3. Registrar libro");
+            System.out.println("3. Registrar cliente");
             System.out.println("4. Consultar clientes");
-            System.out.println("5. Registrar cliente");
-            System.out.println("6. Eliminar cliente");
+            System.out.println("5. Eliminar cliente");
+            System.out.println("6. Eliminar libros");
             System.out.println("7. Modificar datos de un cliente");
             System.out.println("8. Modificar datos de un libro");
             System.out.println("9. Agregar libro");
@@ -103,26 +107,25 @@ public class Menu {
 
             switch (decision) {
                 case 1:
-                  
+                    Libro.mostrarLibros();
                     break;
 
                 case 2: 
                     break;
 
                 case 3: 
-                   libreria.registrarLibro();
+                    Cliente.registrarCliente();
                     break;
 
                 case 4:
-               libreria.mostrarClientes();
+                    Cliente.mostrarClientes();
                     break;
 
                 case 5:
-                   libreria.registrarCliente();
+                    Libreria.eliminarUsuario(Rol.CLIENTE);
                     break;
 
                 case 6:
-                    libreria.eliminarClientes();
                     break;
                 
                 case 7:
@@ -132,7 +135,7 @@ public class Menu {
                     break;
 
                 case 9:
-                  
+                    Libro.registrarLibro();
                     break;
 
                 case 10:
@@ -174,22 +177,22 @@ public class Menu {
 
             switch (decision) {
                 case 1:
-                    
+                    Libro.mostrarLibros();
                     break;
 
                 case 2: 
                     break;
 
                 case 3: 
-                    libreria.registrarCliente();
+                    Cliente.registrarCliente();
                     break;
 
                 case 4:
-                    libreria.mostrarClientes();
+                    Cliente.mostrarClientes();
                     break;
 
                 case 5:
-                    libreria.eliminarClientes();
+                    Libreria.eliminarUsuario(Rol.CLIENTE);
                     break;
 
                 case 6:
@@ -202,15 +205,15 @@ public class Menu {
                     break;
 
                 case 9:
-                  libreria.registrarAsistente();
+                    Asistente.registrarAsistente();
                     break;
 
                 case 10:
-                    libreria.mostrarAsistentes();
-                       break;
+                    Asistente.mostrarAsistentes();
+                    break;
 
                 case 11:
-                  
+                    Libro.registrarLibro();
                     break;
 
                 case 12:
@@ -220,22 +223,22 @@ public class Menu {
                     break;
 
                 case 14:
-                 libreria.eliminarAsistente();
+                    Libreria.eliminarUsuario(Rol.ASISTENTE);
                     break;
 
                 case 15:
                     break;
 
                 case 16:
-                   
+                    Gerente.registrarGerente();
                     break;
 
                 case 17:
-                   
+                    Gerente.mostrarGerentes();
                     break;
 
                 case 18:
-                  
+                    Libreria.eliminarUsuario(Rol.GERENTE);
                     break;
                 
                 case 19:
@@ -248,17 +251,5 @@ public class Menu {
         }
         while(decision != 19);   
         System.out.println("\nSesión cerrada");  
-    }
-    
-     public void cerrarSesion() {
-        boolean datosCorrectos = true;
-        String usuario = null;
-        String contrasena = null;
-        Usuario newUsuario = libreria.verificarInicioSesion(usuario, contrasena);
-        if (newUsuario == null) {
-            datosCorrectos = false;
-            System.out.println("Se cerró la sesión");
-            System.out.println("Hasta luego!!");
-        }
     }
 }

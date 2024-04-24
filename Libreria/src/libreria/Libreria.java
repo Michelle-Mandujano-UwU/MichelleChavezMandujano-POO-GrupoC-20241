@@ -1,5 +1,6 @@
 package libreria;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 import usuarios.*;
@@ -10,40 +11,50 @@ public class Libreria {
        //@SuppressWarnings("rawTypes") //sirve para poder meter lo que quieras a un arrayList
     
     
-    private ArrayList<Libro> libros = new ArrayList<Libro>();
-    private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-    private ArrayList<Usuario> usuariosTotales = new ArrayList<Usuario>();
-     private HashMap<Rol, Object> listaUsuarios1 = new HashMap<>();
-    private ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
+     public static final ArrayList<Libro> libros = new ArrayList<Libro>();
+   // private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+    //private ArrayList<Usuario> usuariosTotales = new ArrayList<Usuario>();
+      public static final HashMap<Rol, ArrayList<Usuario>> usuarios = new HashMap<Rol, ArrayList<Usuario>>();
+    //private ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
     Scanner leer = new Scanner(System.in);
+    private static String usuarioEnSesion;
 
     
-    public Usuario verificarInicioSesion(String nombreUsuario, String contraseña) {
-        for (Object usuario : listaUsuarios1.values()) {
-            if (((Usuario) usuario).getNombre().equals(nombreUsuario)) {
-                if (((Usuario) usuario).getContrasena().equals(contraseña)) {
-                    return ((Usuario) usuario);
-                }
-                return null;
-            }
+   public Libreria() {
+       Asistente asistente = new Asistente("Dulce", "Mandujano", "656556888", 1000, "hdhjsd5454", "dulce123", "dulce1");
+        Gerente gerente = new Gerente("Michelle", "Chávez", "555456511321", 80000, "hhdbshdhv", "gdhsgdhj", "Michelleuwu_", "21Diciembre");
+        
+        if(!usuarios.containsKey(Rol.ASISTENTE)) {
+            usuarios.put(Rol.ASISTENTE, new ArrayList<Usuario>());   
+            usuarios.get(Rol.ASISTENTE).add(asistente); //agregar
         }
-        return null;
+        if(!usuarios.containsKey(Rol.GERENTE)) {
+            usuarios.put(Rol.GERENTE, new ArrayList<Usuario>());   
+            usuarios.get(Rol.GERENTE).add(gerente); 
+        }
     }
 
-      public void registrarLibro() {
-        System.out.println("Ingresa el título: ");
-        String tittle = leer.nextLine();
-        System.out.println("Ingresa la fecha de lanzamiento: ");
-        String fechaLanzamiento = leer.nextLine();
-        System.out.println("Ingresa el nombre del autor: ");
-        String authorName = leer.nextLine();
-        Libro newBook = new Libro(tittle, fechaLanzamiento, authorName);
-        System.out.println("Código de barras: " + newBook.getIDlibro());
-        libros.add(newBook);
+    Usuario verificarInicioSesion(String nombreUsuario, String contrasena) { 
+        for(Rol key : usuarios.keySet()) {
+            for(Usuario usuario : usuarios.get(key)) {
+                if(usuario.getNombreUsuario().equals(nombreUsuario)) {
+                    if(usuario.getContrasena().equals(contrasena)) {
+                        usuarioEnSesion = usuario.getNombreUsuario();
+                        return usuario; 
+                    }
+                }
+            }
+        }
+        return null; 
     }
-    public void registrarCliente() {
+
+
+    public static ArrayList<String> obtenerDatosComun(Rol rol) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\n---- Registrar Cliente ----");
+        ArrayList<String> datosComun = new ArrayList<String>();
+        String rolUsuario = rol == Rol.CLIENTE ? "Cliente" : rol == Rol.ASISTENTE ? "Asistente" : "Gerente"; //operador ternario, es lo mismo que un if y es para no tantas condiciones
+       
+        System.out.println(String.format("\nBienvenido al registro del %s", rolUsuario));
         System.out.println("\nIngresa los siguientes datos para continuar con el registro: ");
         System.out.print("\nNombre: ");
         String nombre = scanner.nextLine();
@@ -54,28 +65,50 @@ public class Libreria {
         System.out.print("Contraseña: ");
         String contraseña = scanner.nextLine();
 
-        Cliente newCliente = new Cliente(nombre, apellido, telefono, nombreUsuario, contraseña);
-        listaUsuarios.add(newCliente);
-        listaUsuarios1.put(Rol.CLIENTE, newCliente);
-
-        System.out.println("Usuario registrado con rol de CLIENTE y con id " + newCliente.getId());
+        datosComun.addAll(Arrays.asList(nombre, apellido, telefono, nombreUsuario, contraseña)); //te agrega todos estos datos de un jalon
+        return datosComun;
     }
 
-   public void mostrarClientes() {
-        if (listaUsuarios.isEmpty()) {
-            System.out.println("\nNo hay cliente registrados");
-        } else {
-            System.out.println("\n**Lista de Clientes**");
 
-            for (Usuario usuario : listaUsuarios) {
-                if (usuario.getRol() == Rol.CLIENTE) {
-                    Cliente cliente = (Cliente) usuario;
-                    System.out.println(cliente.toString());
+    public static void eliminarUsuario (Rol rol) {
+        Scanner scanner = new Scanner(System.in);
+        boolean band = false;
+        System.out.println("\n---- Eliminar usuario ----\n");
+        System.out.print("Ingrese el nombre de usuario que desea eliminar: ");
+        String nombreUsuario = scanner.nextLine();
+        String rolUsuario = rol == Rol.CLIENTE ? "Cliente" : rol == Rol.ASISTENTE ? "Asistente" : "Gerente"; //operador ternario, es lo mismo que un if y es para no tantas condiciones
+
+        if(nombreUsuario.equals(usuarioEnSesion)) {
+            System.out.println("\nNo puedes eliminarte a ti mismo");
+            band = true;
+        }
+        else if(usuarios.containsKey(rol)) {
+            Usuario usuarioEliminado = null;
+            for(Usuario usuario : usuarios.get(rol)) {
+                if(usuario.getNombreUsuario().equals(nombreUsuario)) {
+                    usuarioEliminado = usuario;
+                    int y = usuarioEliminado.getId();
+                    usuarioEliminado.setCANTIDAD_USUARIOS();
+                    band = true;
+                    for(Rol key : usuarios.keySet()) {
+                        for(Usuario i : usuarios.get(key)) {
+                            if(i.getId() > y) {
+                                i.setId();
+                            }
+                        }
+                    }
                 }
             }
+            if(band) {
+                usuarios.get(rol).remove(usuarioEliminado);
+                System.out.println("\nUsuario eliminado");
+            }
+        }
+        if(band == false) {
+            System.out.println(String.format("\nEste nombre no pertenece a ningún %s", rolUsuario));
         }
     }
-        /*System.out.println("\nClientes en la biblioteca");
+/*System.out.println("\nClientes en la biblioteca");
         int x = 1;
         for(Usuario i : listaUsuarios) {
             if(i.getRol() == Rol.CLIENTE) {
@@ -85,247 +118,53 @@ public class Libreria {
                 x++;
             }
         }*/
-    
 
-    private String registrarTelefonoUsuario() {
+    public static String registrarTelefonoUsuario() {
+        Scanner scanner = new Scanner(System.in);
         boolean telefonoExistente = true;
-
         String telefono = "";
+
         do {
-            System.out.print("Ingresa tu teléfono: ");
-            telefono = leer.nextLine();
-
+            System.out.println("\nIngresa el telefono: ");
+            telefono = scanner.nextLine();
             telefonoExistente = false;
-            for (Object usuario : listaUsuarios1.values()) {
-                if (((Usuario)usuario).getTelefono().equals(telefono)) {
-                    telefonoExistente = true;
-                    break;
-                }
+            for(Rol key : usuarios.keySet()) {
+                for(Usuario usuario : usuarios.get(key))
+                    if(usuario.getTelefono().equals(telefono)) {
+                        telefonoExistente = true;
+                        break;
+                    }
             }
-
-            if (telefonoExistente) {
-                System.out.println("\nEl teléfono ya se encuentra registrado. Intenta de nuevo");
+            if(telefonoExistente) {
+                System.out.println("\nEl telefono ya se encuentra registrado. Intenta de nuevo.");
             }
-        } while (telefonoExistente);
-
+        }
+        while(telefonoExistente);
         return telefono;
     }
 
 
-    public String registrarNombreUsuario() {
-         
-        boolean user = true;
-
+    public static String registrarNombreUsuario() {
+        Scanner scanner = new Scanner(System.in);
         String nombreUsuario = "";
+        boolean nombreUsuarioExistente = true;
         do {
-            System.out.print("Nombre de usuario: ");
-            nombreUsuario = leer.nextLine();
-
-            user = false;
-            for (Usuario usuario : listaUsuarios) {
-                if (usuario.getTelefono().equals(nombreUsuario)) {
-                    user = true;
-                    break;
+            System.out.println("\nIngresa el nombre de usuario: ");
+            nombreUsuario = scanner.nextLine();
+            nombreUsuarioExistente = false;
+            for(Rol key : usuarios.keySet()) {
+                for(Usuario usuario : usuarios.get(key)) {
+                    if(usuario.getNombreUsuario().equals(nombreUsuario)) {
+                        nombreUsuarioExistente = true;
+                        break;
+                    }
                 }
             }
-
-            if (user) {
-                System.out.println("\nYa existe un registro con ese nombre de usuario. Intenta de nuevo");
+            if(nombreUsuarioExistente) {
+                System.out.println("\nYa existe un registro con ese nombre de usuario. Intenta de nuevo.");
             }
-        } while (user);
-
+        }
+        while(nombreUsuarioExistente);
         return nombreUsuario;
-    
-
     }
-     public void registrarGerente() {
-        Rol rol = UsuarioEnSesion.obtenerInstancia().getUsuarioActual().getRol();
-
-        if (rol == Rol.GERENTE) {
-            System.out.println("\n***Registro de gerente**");
-
-            System.out.print("\nIngresa el nombre: ");
-            String nombre = leer.nextLine();
-
-            System.out.print("Ingresa el apellido: ");
-            String apellido = leer.nextLine();
-
-            System.out.print("Ingresa el sueldo: ");
-            double sueldo = leer.nextDouble();
-
-            System.out.print("Ingresa la INE: ");
-            String INE = leer.nextLine();
-
-            String telefono = registrarTelefonoUsuario();
-            String nombreUsuario = registrarNombreUsuario();
-
-            System.out.print("Contraseña: ");
-            String clave = leer.nextLine();
-
-            Gerente newAdmin = new Gerente(nombre, apellido, telefono, nombreUsuario, nombreUsuario, sueldo, clave,
-                    INE);
-            listaUsuarios.add(newAdmin);
-
-            System.out.println("Usuario registrado con rol de ADMINISTRADOR y con id " + newAdmin.getId());
-        } else {
-            System.out.println("\nNo eres un gerente, no puedes registrar a otro gerente");
-            return;
-        }
-
-    }
-
-    public void registrarAsistente() {
-
-        Rol rol = UsuarioEnSesion.obtenerInstancia().getUsuarioActual().getRol();
-
-        if (rol == Rol.GERENTE) {
-            System.out.println("\n***Registro de asistente***");
-
-            System.out.print("\nIngresa el nombre: ");
-            String nombre = leer.nextLine();
-
-            System.out.print("Ingresa el apellido: ");
-            String apellido = leer.nextLine();
-
-            System.out.print("Ingresa el sueldo: ");
-            double sueldo = leer.nextDouble();
-
-            System.out.print("Ingresa el RFC: ");
-            String RFC = leer.nextLine();
-
-            System.out.print("Ingresa la INE: ");
-            String INE = leer.nextLine();
-
-            String telefono = registrarTelefonoUsuario();
-            String nombreUsuario = registrarNombreUsuario();
-
-            System.out.print("Contraseña: ");
-            String clave = leer.nextLine();
-
-            Asistente newAsistente = new Asistente(nombre, apellido, telefono, nombreUsuario, clave, sueldo, RFC, INE);
-            listaUsuarios.add(newAsistente);
-
-            System.out.println("Usuario registrado con rol de ASISTENTE y con id " + newAsistente.getId());
-        } else {
-            System.out.println("\nNo eres un gerente, no puedes registrar a un asistente");
-            return;
-        }
-
-    }
-    public void mostrarGerentes() {
-        if (listaUsuarios.isEmpty()) {
-            System.out.println("\nNo hay gerentes registrados");
-        } else {
-            System.out.println("\n**Lista de Gerentes**");
-            for (Usuario usuario : listaUsuarios) {
-                if (usuario.getRol() == Rol.GERENTE) {
-                    Gerente gerente = (Gerente) usuario;
-                    System.out.println(gerente.toString());
-                }
-            }
-        }
-    }
-
-    public void mostrarAsistentes() {
-        if (listaUsuarios.isEmpty()) {
-            System.out.println("\nNo hay asistentes registrados");
-        } else {
-            System.out.println("\n**Lista de Asistentes**");
-            for (Usuario usuario : listaUsuarios) {
-                if (usuario.getRol() == Rol.ASISTENTE) {
-                    Asistente asistente = (Asistente) usuario;
-                    System.out.println(asistente.toString());
-                }
-            }
-        }
-    }
-    public void eliminarClientes() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("\n**Eliminación de clientes");
-
-        System.out.print("\nIngrese el nombre de usuario del cliente a eliminar: ");
-        String nombreUsuario = scanner.nextLine();
-
-        int indiceEliminado = 0;
-
-        for (Usuario cliente : listaUsuarios) {
-            if (cliente.getNombreUsuario().equals(nombreUsuario)) {
-                listaUsuarios.remove(indiceEliminado);
-                System.out.println("\nCliente eliminado con éxito");
-                return;
-            }
-            indiceEliminado++;
-        }
-        System.out.println("\nEl cliente no existe en sistema");
-
-    }
-
-    public void eliminarAsistente() {
-        Scanner scanner = new Scanner(System.in);
-
-        Rol rol = UsuarioEnSesion.obtenerInstancia().getUsuarioActual().getRol();
-
-        if (rol == Rol.GERENTE) {
-            System.out.println("\n**Eliminación de asistente");
-
-            System.out.print("\nIngrese el nombre de usuario del asistente a eliminar: ");
-            String nombreUsuario = scanner.nextLine();
-
-            int indiceEliminado = 0;
-
-            for (Usuario asistente : listaUsuarios) {
-                if (asistente.getNombreUsuario().equals(nombreUsuario)) {
-                    listaUsuarios.remove(indiceEliminado);
-                    System.out.println("\nAsistente eliminado con éxito");
-                    return;
-                }
-                indiceEliminado++;
-            }
-            System.out.println("\nEl asistente no existe en sistema");
-
-        } else {
-            System.out.println("\nNo eres un gerente no puede eliminar un asistente");
-            return;
-        }
-
-    }
-
-    public void eliminarGerente() {
-        Scanner scanner = new Scanner(System.in);
-
-        Rol rol = UsuarioEnSesion.obtenerInstancia().getUsuarioActual().getRol();
-
-        if (rol == Rol.GERENTE) {
-            System.out.println("\n**Eliminación de gerente");
-
-            System.out.print("\nIngrese el nombre de usuario del gerente a eliminar: ");
-            String nombreUsuario = scanner.nextLine();
-
-            int indiceEliminado = 0;
-
-            for (Usuario gerente : listaUsuarios) {
-                if (gerente.getNombreUsuario().equals(nombreUsuario)) {
-                    listaUsuarios.remove(indiceEliminado);
-                    System.out.println("\nGerente eliminado con éxito");
-                    return;
-                }
-                indiceEliminado++;
-            }
-            System.out.println("\nEl gerente no existe en sistema");
-
-        } else {
-            System.out.println("\nNo eres un gerente, no puedes eliminar a otro gerente");
-            return;
-        }
-
-    }
-
-    public void mostrarLibros() {
-        for (Libro buscarLibro : libros) {
-            System.out.println(buscarLibro.mostrarLibros());
-        }
-    }
-
 }
-

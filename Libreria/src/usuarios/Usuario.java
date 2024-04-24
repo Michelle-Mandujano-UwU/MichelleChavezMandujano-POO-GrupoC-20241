@@ -7,7 +7,7 @@ public class Usuario {
     private static int CANTIDAD_USUARIOS = 1;
     private String nombre, apellido, telefono; //Cliente, asistente y gerente
     private int id;
-    private Rol rol; //es de tipo rol ya que solo aceptamos 3 roles, esto para evitar que se ingrese un rol no existente
+    private Rol rol; //3 roles existente
     private String nombreUsuario;
     private String contrasena;
 
@@ -50,16 +50,23 @@ public class Usuario {
         return contrasena;
     }
 
+    public void setCANTIDAD_USUARIOS() {
+        CANTIDAD_USUARIOS--;
+    }
 
-    public String toString() { //se sobreescribe el metodo
+    public void setId() {
+        this.id = id - 1;
+    }
+
+    public String toString() { 
         return String.format("ID: %d, Nombre completo: %s %s, Teléfono: %s, rol: %s, Nombre de usuario: %s", 
         id, nombre, apellido, telefono, rol, nombreUsuario);
     }
 
-    /*public String mostrarInfo() {
-        return String.format("ID: %d, Nombre completo: %s %s, Teléfono: %s, rol: %s", 
-        id, nombre, apellido, telefono, rol);
-    }*/
+    public static int getCANTIDAD_USUARIOS() {
+        return CANTIDAD_USUARIOS - 1;
+    }
 
+  
         
 }

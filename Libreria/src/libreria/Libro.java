@@ -1,71 +1,67 @@
 
 package libreria;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Mich
  */
 public class Libro {
-     private String titulo;
-    private String fechaLanzamiento;
-    private String autor;
-    boolean libroDisponible;
-    private int IDlibro;
-    public static int CODIGO = 100000;
+     private static int CANTIDAD_LIBROS = 1;
+    private String titulo, autor, genero, idioma;
+    private double precio;
+    private int id;
 
-    public Libro(String titulo, String fechaLanzamiento, String authorName, boolean libroDipsonible,int libroID) {
+    public Libro(String titulo, String autor, String genero, String idioma, double precio) {
         this.titulo = titulo;
-        this.fechaLanzamiento = fechaLanzamiento;
-        this.autor = authorName;
-        this.libroDisponible = true;
-        this.IDlibro = CODIGO;
-        CODIGO++;
-
+        this.autor = autor;
+        this.genero = genero;
+        this.idioma = idioma;
+        this.precio = precio;
+        this.id = CANTIDAD_LIBROS;
+        CANTIDAD_LIBROS++;
     }
 
-    public Libro(String titulo, String fechaLanzamiento, String authorName) {
-        this.titulo = titulo;
-        this.fechaLanzamiento = fechaLanzamiento;
-        this.autor = authorName;
-        this.IDlibro = CODIGO;
-        CODIGO++;
+    public String getData() {
+        return String.format("Título: %s \nAutor: %s \nGénero: %s \nID: %d \nIdioma: %s \nPrecio: %.2f", titulo, autor, genero, id, idioma, precio);
     }
 
-    public Libro(int IDlibro) {
-        this.IDlibro = IDlibro;
-    }
-    public String getTitulo() {
-        return titulo;
-    }
-    public int getIDlibro() {
-        return IDlibro;
-    }
-    public void setIDlibro(int IDlibro) {
-        this.IDlibro = IDlibro;
-    }
-    public String getFechaLanzamiento() {
-        return fechaLanzamiento;
-    }
-    public void setFechaLanzamiento(String fechaLanzamiento) {
-        this.fechaLanzamiento = fechaLanzamiento;
-    }
-    public String getAutor() {
-        return autor;
-    }
-    public void setAutor(String nombre) {
-        this.autor = nombre;
+
+    public static void registrarLibro() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\n---- Registrar libro ----");
+        System.out.println("\nIngresa los siguientes datos para continuar con el registro: ");
+        System.out.print("\nTítulo: ");
+        String titulo = scanner.nextLine();
+        System.out.print("Autor: ");
+        String autor = scanner.nextLine();
+        System.out.print("Género: ");
+        String genero = scanner.nextLine();
+        System.out.print("Idioma: ");
+        String idioma = scanner.nextLine();
+        System.out.print("Precio: ");
+        double precio = scanner.nextDouble();
+
+        Libro libro = new Libro(titulo, autor, genero, idioma, precio);
+        Libreria.libros.add(libro);
+        System.out.println("\nRegistro exitoso");
     }
 
-    public boolean isLibroDisponible() {
-        return libroDisponible;
+
+    public static void mostrarLibros() {
+        if(Libreria.libros.isEmpty()) {
+            System.out.println("\nNo hay libros registrados aún");
+        }
+        else {
+            System.out.println("\nLibros en la biblioteca");
+            int x = 1;
+            for(Libro i : Libreria.libros) {
+                System.out.println("\n---- Libro " + x + " ----\n");
+                System.out.println(i.getData());
+                x++;
+            }
+        }
     }
-    public void setLibroDisponible(boolean libroDisponible) {
-        this.libroDisponible = libroDisponible;
-    }
-    public String mostrarLibros(){
-        return String.format("Libro: %s, Autor: %s ID: %d", titulo, autor, IDlibro);
-    }
-    public String mostrarLibrosRentados() {
-        return String.format("Libro: %s", titulo);
-    }
+
 }
