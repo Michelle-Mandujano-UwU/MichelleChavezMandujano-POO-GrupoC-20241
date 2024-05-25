@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Usuarios/Serializer/UsuarioSerializer.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Libros/Libro.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Libros/utils/constants/TerrorSubgenero.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Libros/LibroComedia.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Usuarios/Trabajador.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Main.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Libros/utils/constants/Genero.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Libros/utils/constants/ClasificacionLibro.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Usuarios/Gerente.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Libros/LibroAccion.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Libros/LibroTerror.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Usuarios/Serializer/UsuarioDeserializer.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Libreria/Menu.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Usuarios/Usuario.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/utils/UsuarioEnSesion.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Libros/utils/LibrosUtils.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Libros/LibrosSerializer/LibroSerializer.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Libros/LibrosSerializer/LibrosDeserializer.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Usuarios/utils/Rol.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Usuarios/Estudiante.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Usuarios/models/UsuarioModel.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Usuarios/Cliente.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Usuarios/utils/EmpleadoUtils.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Usuarios/Asistente.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Libros/models/LibroModel.java</file>
+            <file>file:/C:/Users/Mich/Documents/NetBeansProjects/Libreria/src/Libreria/Libreria.java</file>
+        </group>
+    </open-files>
+</project-private>
