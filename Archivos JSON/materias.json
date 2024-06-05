@@ -1,0 +1,166 @@
+{
+	"materias": [
+		{
+			"id":"0",
+			"nombreMateria":"Programación 1",
+			"semestre":"1",
+			"idCarrera":"0"
+		},
+		{
+			"id":"1",
+			"nombreMateria":"Probabilidad 1",
+			"semestre":"1",
+			"idCarrera":"0"
+		},
+		{
+			"id":"2",
+			"nombreMateria":"Cálculo 1",
+			"semestre":"1",
+			"idCarrera":"0"
+		},
+		{
+			"id":"3",
+			"nombreMateria":"Programación 2",
+			"semestre":"2",
+			"idCarrera":"0"
+		},
+		{
+			"id":"4",
+			"nombreMateria":"Probabilidad 2",
+			"semestre":"2",
+			"idCarrera":"0"
+		},
+		{
+			"id":"5",
+			"nombreMateria":"Cálculo 2",
+			"semestre":"2",
+			"idCarrera":"0"
+		},
+		{
+			"id":"6",
+			"nombreMateria":"Programación 3",
+			"semestre":"3",
+			"idCarrera":"0"
+		},
+		{
+			"id":"7",
+			"nombreMateria":"Probabilidad 3",
+			"semestre":"3",
+			"idCarrera":"0"
+		},
+		{
+			"id":"8",
+			"nombreMateria":"Cálculo 3",
+			"semestre":"3",
+			"idCarrera":"0"
+		},
+		{
+			"id":"9",
+			"nombreMateria":"Estadística 1",
+			"semestre":"1",
+			"idCarrera":"1"
+		},
+		{
+			"id":"10",
+			"nombreMateria":"Contabilidad 1",
+			"semestre":"1",
+			"idCarrera":"1"
+		},
+		{
+			"id":"11",
+			"nombreMateria":"Cálculo 1",
+			"semestre":"1",
+			"idCarrera":"1"
+		},
+		{
+			"id":"12",
+			"nombreMateria":"Estadística 2",
+			"semestre":"2",
+			"idCarrera":"1"
+		},
+		{
+			"id":"13",
+			"nombreMateria":"Contabilidad 2",
+			"semestre":"2",
+			"idCarrera":"1"
+		},
+		{
+			"id":"14",
+			"nombreMateria":"Cálculo 2",
+			"semestre":"2",
+			"idCarrera":"1"
+		},
+		{
+			"id":"15",
+			"nombreMateria":"Estadística 3",
+			"semestre":"3",
+			"idCarrera":"1"
+		},
+		{
+			"id":"16",
+			"nombreMateria":"Contabilidad 3",
+			"semestre":"3",
+			"idCarrera":"1"
+		},
+		{
+			"id":"17",
+			"nombreMateria":"Cálculo 3",
+			"semestre":"3",
+			"idCarrera":"1"
+		},
+		{
+			"id":"18",
+			"nombreMateria":"Redes 1",
+			"semestre":"1",
+			"idCarrera":"2"
+		},
+		{
+			"id":"19",
+			"nombreMateria":"Circuitos 1",
+			"semestre":"1",
+			"idCarrera":"2"
+		},
+		{
+			"id":"20",
+			"nombreMateria":"Cálculo 1",
+			"semestre":"1",
+			"idCarrera":"2"
+		},
+		{
+			"id":"21",
+			"nombreMateria":"Redes 2",
+			"semestre":"2",
+			"idCarrera":"2"
+		},
+		{
+			"id":"22",
+			"nombreMateria":"Circuitos 2",
+			"semestre":"2",
+			"idCarrera":"2"
+		},
+		{
+			"id":"23",
+			"nombreMateria":"Cálculo 2",
+			"semestre":"2",
+			"idCarrera":"2"
+		},
+		{
+			"id":"24",
+			"nombreMateria":"Redes 3",
+			"semestre":"3",
+			"idCarrera":"2"
+		},
+		{
+			"id":"25",
+			"nombreMateria":"Circuitos 3",
+			"semestre":"3",
+			"idCarrera":"2"
+		},
+		{
+			"id":"26",
+			"nombreMateria":"Cálculo 3",
+			"semestre":"3",
+			"idCarrera":"2"
+		}
+	]
+}

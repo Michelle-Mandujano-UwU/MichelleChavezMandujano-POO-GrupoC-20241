@@ -1,0 +1,58 @@
+{
+    "coordinadores": [
+        {
+            "apellidos": "Valencia Rodriguez",
+            "estado": "Guanajuato",
+            "fechaNacimiento": "1996-04-07",
+            "fechaRegistro": "2024-05-25",
+            "direccion": "Abasolo #73 INT",
+            "sueldo": "5000",
+            "nombre": "Miguel Angel",
+            "rfc": "VARM960407",
+            "idCarrera": "0",
+            "password": "123",
+            "ciudad": "Acambaro",
+            "materiasImparte": [
+                {
+                    "id": "0"
+                },
+                {
+                    "id": "1"
+                },
+                {
+                    "id": "2"
+                }
+            ],
+            "id": "0",
+            "curp": "VOM960407G1",
+            "username": "mav"
+        },
+        {
+            "apellidos": "Perez Perez",
+            "estado": "Jalisco",
+            "fechaNacimiento": "1996-04-04",
+            "fechaRegistro": "2024-05-31",
+            "direccion": "Piedras #45",
+            "sueldo": "4500",
+            "nombre": "Luis Mario",
+            "rfc": "PEPL960404",
+            "idCarrera": "2",
+            "password": "123",
+            "ciudad": "Guadalajara",
+            "materiasImparte": [
+                {
+                    "id": "18"
+                },
+                {
+                    "id": "19"
+                },
+                {
+                    "id": "20"
+                }
+            ],
+            "id": "1",
+            "curp": "PEL960404J9",
+            "username": "lmpp"
+        }
+    ]
+}

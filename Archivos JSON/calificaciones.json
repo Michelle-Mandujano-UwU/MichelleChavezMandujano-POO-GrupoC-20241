@@ -1,0 +1,84 @@
+{
+    "calificaciones": [
+        {
+            "idAlumno": "1",
+            "idCarrera": "0",
+            "calificacion": "95",
+            "idMateria": "0",
+            "idCalificacion": "3",
+            "semestre": "1"
+        },
+        {
+            "idAlumno": "1",
+            "idCarrera": "0",
+            "calificacion": "98",
+            "idMateria": "1",
+            "idCalificacion": "4",
+            "semestre": "1"
+        },
+        {
+            "idAlumno": "1",
+            "idCarrera": "0",
+            "calificacion": "85",
+            "idMateria": "2",
+            "idCalificacion": "5",
+            "semestre": "1"
+        },
+        {
+            "idAlumno": "1",
+            "idCarrera": "0",
+            "calificacion": "99",
+            "idMateria": "3",
+            "idCalificacion": "3",
+            "semestre": "2"
+        },
+        {
+            "idAlumno": "1",
+            "idCarrera": "0",
+            "calificacion": "96",
+            "idMateria": "4",
+            "idCalificacion": "4",
+            "semestre": "2"
+        },
+        {
+            "idAlumno": "1",
+            "idCarrera": "0",
+            "calificacion": "80",
+            "idMateria": "5",
+            "idCalificacion": "5",
+            "semestre": "2"
+        },
+        {
+            "idAlumno": "1",
+            "idCarrera": "0",
+            "calificacion": "98",
+            "idMateria": "6",
+            "idCalificacion": "6",
+            "semestre": "3"
+        },
+        {
+            "idAlumno": "1",
+            "idCarrera": "0",
+            "calificacion": "96",
+            "idMateria": "7",
+            "idCalificacion": "7",
+            "semestre": "3"
+        },
+        {
+            "idAlumno": "1",
+            "idCarrera": "0",
+            "calificacion": "80",
+            "idMateria": "8",
+            "idCalificacion": "8",
+            "semestre": "3"
+        },
+        {
+            "idAlumno": "0",
+            "idCarrera": "0",
+            "calificacion": "90",
+            "idMateria": "0",
+            "idCalificacion": "9",
+            "semestre": "1"
+        }
+    ]
+}

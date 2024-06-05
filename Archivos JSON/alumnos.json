@@ -1,0 +1,40 @@
+{
+  "alumnos": [
+    {
+      "apellidos": "Luna Luna",
+      "estado": "Michoacan",
+      "numeroControl": "JO1900",
+      "fechaNacimiento": "1996-04-04",
+      "fechaRegistro": "2024-05-31",
+      "promedio": "30.00",
+      "direccion": "Aldama #45",
+      "nombre": "Jose Jesus",
+      "idCarrera": "0",
+      "password": "123",
+      "ciudad": "Morelia",
+      "id": "0",
+      "semestre": "1",
+      "curp": "LUJ960404M1",
+      "username": "jjll",
+      "idGrupo": "0"
+    },
+    {
+      "apellidos": "Jimenez Garcia",
+      "estado": "Michoacan",
+      "numeroControl": "JG1900",
+      "fechaNacimiento": "1996-04-04",
+      "fechaRegistro": "2024-05-31",
+      "promedio": "0",
+      "direccion": "Aldama #45",
+      "nombre": "Ana Lucia",
+      "idCarrera": "0",
+      "password": "123",
+      "ciudad": "Morelia",
+      "id": "1",
+      "semestre": "4",
+      "curp": "LUJ960404M1",
+      "username": "jgal",
+      "idGrupo": "-1"
+    }
+  ]
+}

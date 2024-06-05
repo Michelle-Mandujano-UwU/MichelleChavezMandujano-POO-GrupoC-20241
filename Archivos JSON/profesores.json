@@ -1,0 +1,87 @@
+{
+  "profesores": [
+    {
+      "apellidos": "Martinez Rodriguez",
+      "estado": "Michoacan",
+      "fechaNacimiento": "1990-04-07",
+      "fechaRegistro": "2024-05-25",
+      "direccion": "Flores #45",
+      "sueldo": "8000",
+      "nombre": "Jose Luis",
+      "rfc": "MARJ900407",
+      "password": "123",
+      "ciudad": "Morelia",
+      "materiasImparte": [
+        {
+          "id": "0"
+        },
+        {
+          "id": "1"
+        },
+        {
+          "id": "2"
+        },
+        {
+          "id": "3"
+        },
+        {
+          "id": "4"
+        },
+        {
+          "id": "5"
+        },
+        {
+          "id": "6"
+        },
+        {
+          "id": "7"
+        },
+        {
+          "id": "8"
+        }
+      ],
+      "gruposAsignados": [
+        {
+          "id": "0"
+        }
+      ],
+      "id": "0",
+      "curp": "MOJ900407M1",
+      "username": "lac"
+    },
+    {
+      "apellidos": "Saavedra Martinez",
+      "estado": "Guanajuato",
+      "fechaNacimiento": "1996-04-04",
+      "fechaRegistro": "2024-05-31",
+      "direccion": "Ponciano Arriaga #415A",
+      "sueldo": "1500",
+      "nombre": "Sergio Jonh",
+      "rfc": "SAMS960404",
+      "password": "123",
+      "ciudad": "a",
+      "materiasImparte": [
+        {
+          "id": "3"
+        },
+        {
+          "id": "4"
+        },
+        {
+          "id": "5"
+        }
+      ],
+      "gruposAsignados": [
+        {
+          "id": "2"
+        },
+        {
+          "id": "3"
+        }
+      ],
+      "id": "1",
+      "curp": "SAS960404G5",
+      "username": "ajam"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+    "historial": [
+        {
+            "idAlumno": "1",
+            "promedio": "0",
+            "materiasCursadas": [
+                {
+                    "id": "0"
+                },
+                {
+                    "id": "1"
+                },
+                {
+                    "id": "2"
+                }
+            ],
+            "profesoresImpartieron": "Miguel Angel Valencia Rodriguez",
+            "semestre": "1",
+            "idRegistro": "0"
+        },
+        {
+            "idAlumno": "1",
+            "promedio": "91.67",
+            "materiasCursadas": [
+                {
+                    "id": "3"
+                },
+                {
+                    "id": "4"
+                },
+                {
+                    "id": "5"
+                }
+            ],
+            "profesoresImpartieron": "Miguel Angel Valencia Rodriguez",
+            "semestre": "2",
+            "idRegistro": "1"
+        },
+        {
+            "idAlumno": "1",
+            "promedio": "90",
+            "materiasCursadas": [
+                {
+                    "id": "6"
+                },
+                {
+                    "id": "7"
+                },
+                {
+                    "id": "8"
+                }
+            ],
+            "profesoresImpartieron": "Jose Luis Martinez Rodriguez",
+            "semestre": "3",
+            "idRegistro": "2"
+        }
+    ]
+}

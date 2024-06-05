@@ -1,0 +1,32 @@
+{
+	"carreras":[
+		{
+			"id":"0",
+			"nombreCarrera":"Ingeniería en Sistemas Computacionales - ISC",
+			"cantidadGrupos":"1",
+			"cantidadAlumnos":"0",
+			"cantidadMaterias":"9",
+			"fechaCreacion":"2024-04-04",
+			"idCoordinador":"0"
+		},
+		{
+			"id":"1",
+			"nombreCarrera":"Ingeniería en Materiales - IMAT",
+			"cantidadGrupos":"1",
+			"cantidadAlumnos":"0",
+			"cantidadMaterias":"9",
+			"fechaCreacion":"2024-04-04",
+			"idCoordinador":""
+		},
+		{
+			"id":"2",
+			"nombreCarrera":"Ingeniería Electrónica ELC",
+			"cantidadGrupos":"1",
+			"cantidadAlumnos":"0",
+			"cantidadMaterias":"9",
+			"fechaCreacion":"2024-04-04",
+			"idCoordinador":""
+		}
+	
+	]
+}
